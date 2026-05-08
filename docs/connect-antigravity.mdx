@@ -1,0 +1,50 @@
+---
+title: Connect Antigravity
+description: Add PMM Sherpa to Google's Antigravity IDE.
+order: 6
+---
+
+# Connect Antigravity
+
+Antigravity is Google's agentic IDE. It supports Streamable HTTP MCP servers through a JSON config.
+
+## Steps
+
+1. Open the **MCP store** in Antigravity → **Manage MCP Servers** → **View raw config**.
+2. This opens `mcp_config.json`:
+   - macOS / Linux: `~/.gemini/antigravity/mcp_config.json`
+   - Windows: `C:\Users\<you>\.gemini\antigravity\mcp_config.json`
+3. Add PMM Sherpa under `mcpServers`:
+
+```json
+{
+  "mcpServers": {
+    "pmm-sherpa": {
+      "httpUrl": "https://pmmsherpa.com/api/mcp"
+    }
+  }
+}
+```
+
+4. Save. Antigravity hot-reloads and triggers OAuth on the first tool call.
+
+## Auth
+
+Browser OAuth on first use. Tokens persist across sessions.
+
+## Limitations
+
+Per-workspace MCP config is still being rolled out. For now, this config is **global** across all Antigravity workspaces. Disabling per-workspace is not yet supported, so consider that when sharing machines.
+
+## Troubleshooting
+
+- **Tools missing after save**: confirm the JSON is valid (`httpUrl`, not `url`). Quit and relaunch Antigravity.
+- **OAuth window blocked**: allow pop-ups for `pmmsherpa.com`, then re-trigger any tool call.
+- **Want staging**: use `https://staging.pmmsherpa.com/api/mcp` and a staging account.
+
+## Next steps
+
+- [See worked examples](/docs/examples)
+- [Understand credits and billing](/docs/purchase-credits)
+
+[Back to top](#connect-antigravity)

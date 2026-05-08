@@ -1,0 +1,52 @@
+---
+title: Connect Codex
+description: Add PMM Sherpa to OpenAI Codex CLI and IDE extension.
+order: 4
+---
+
+# Connect Codex
+
+Codex (OpenAI's CLI and IDE extension) is a first-class MCP client. CLI and IDE share the same config.
+
+## One-line install
+
+```bash
+codex mcp add pmm-sherpa --url https://pmmsherpa.com/api/mcp
+```
+
+## Manual config
+
+Edit `~/.codex/config.toml` and add:
+
+```toml
+[mcp_servers.pmm-sherpa]
+url = "https://pmmsherpa.com/api/mcp"
+```
+
+Restart Codex. The four tools appear automatically.
+
+## Auth
+
+The first tool call opens a browser for OAuth. If you prefer a static token (CI, restricted environments), set:
+
+```toml
+[mcp_servers.pmm-sherpa]
+url = "https://pmmsherpa.com/api/mcp"
+bearer_token_env_var = "PMM_SHERPA_TOKEN"
+```
+
+Then export `PMM_SHERPA_TOKEN` in your shell.
+
+## Troubleshooting
+
+- **Tools not listed after restart**: check TOML syntax (`[mcp_servers.pmm-sherpa]`, not nested). Run Codex with verbose logging if needed.
+- **OAuth never completes**: allow pop-ups, then re-run any tool call.
+- **CI / headless**: switch to the `bearer_token_env_var` flow above.
+- **Want staging**: replace the URL with `https://staging.pmmsherpa.com/api/mcp`.
+
+## Next steps
+
+- [See worked examples](/docs/examples)
+- [Understand credits and billing](/docs/purchase-credits)
+
+[Back to top](#connect-codex)

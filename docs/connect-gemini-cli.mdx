@@ -1,0 +1,47 @@
+---
+title: Connect Gemini CLI
+description: Add PMM Sherpa to Google's Gemini CLI.
+order: 5
+---
+
+# Connect Gemini CLI
+
+Gemini CLI consumes remote MCP tools over Streamable HTTP.
+
+## Config
+
+Edit `~/.gemini/settings.json` (global) or `.gemini/settings.json` (project) and add:
+
+```json
+{
+  "mcpServers": {
+    "pmm-sherpa": {
+      "httpUrl": "https://pmmsherpa.com/api/mcp"
+    }
+  }
+}
+```
+
+Restart the CLI. Confirm with `/mcp` inside a session.
+
+## Auth
+
+Gemini CLI handles OAuth 2.0 in-browser on the first tool call. No tokens to paste.
+
+## Limitations
+
+- Gemini CLI consumes tools only. It does not surface MCP resources or prompts. (None of PMM Sherpa's surfaces today require resources or prompts, so this is not a blocker.)
+- The Gemini consumer app (gemini.google.com and the mobile app) does **not** support custom remote MCP servers as of May 2026. Use Gemini CLI, Antigravity, or Gemini Enterprise.
+
+## Troubleshooting
+
+- **`/mcp` shows nothing**: confirm JSON validity. The key is `httpUrl` (not `url`).
+- **OAuth never completes**: allow pop-ups, then re-run any tool call.
+- **Want staging**: use `https://staging.pmmsherpa.com/api/mcp`.
+
+## Next steps
+
+- [See worked examples](/docs/examples)
+- [Understand credits and billing](/docs/purchase-credits)
+
+[Back to top](#connect-gemini-cli)

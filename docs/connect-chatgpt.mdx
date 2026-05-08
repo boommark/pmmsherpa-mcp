@@ -1,0 +1,47 @@
+---
+title: Connect ChatGPT
+description: Add PMM Sherpa to ChatGPT via Developer Mode.
+order: 3
+---
+
+# Connect ChatGPT
+
+ChatGPT supports remote MCP in two places: Deep Research / Company Knowledge (GA) and Developer Mode (beta, full read+write tool calls in regular chat). For PMM Sherpa, **use Developer Mode**. It is the only path that exposes all four tools.
+
+Note: ChatGPT renamed "Connectors" to **Apps** in late 2025.
+
+Available on Plus, Pro, Business, and Edu. Not available on Free.
+
+## Recommended path (Developer Mode)
+
+1. **Settings → Apps → Advanced settings → Developer mode** → enable.
+2. **Settings → Apps → Add custom app** (or "Add MCP server" inside Developer Mode).
+3. Enter:
+   - **URL**: `https://pmmsherpa.com/api/mcp`
+   - **Auth**: choose **OAuth**.
+4. Sign in with your PMM Sherpa account in the popup.
+5. In a new chat, open the apps/tools menu and toggle **PMM Sherpa** on.
+
+## Auth
+
+Developer Mode uses in-browser OAuth. The legacy Connector mode also accepts a pasted bearer token if your workspace blocks OAuth (rare).
+
+## Important Deep Research caveat
+
+ChatGPT's Deep Research surface only accepts MCP tools that match a `search` / `fetch` shape. That means `scope_pmm_research`, `draft_artifact`, and `get_feedback` will not appear inside Deep Research. They only work in regular chat with Developer Mode on.
+
+If you specifically want PMM Sherpa during a ChatGPT Deep Research run, plan up front in regular chat (use `scope_pmm_research` and `ask_sherpa` to brief), then run Deep Research, then return to regular chat for `get_feedback` on the synthesis.
+
+## Troubleshooting
+
+- **Developer Mode toggle missing**: confirm your plan (Plus, Pro, Business, or Edu). Free does not see Developer Mode.
+- **OAuth popup blocked**: allow pop-ups for `chatgpt.com` and `pmmsherpa.com`, then re-run any tool call.
+- **App not appearing in chat**: open the apps menu inside the conversation and toggle PMM Sherpa on. Each chat is opt-in.
+- **Want staging**: use `https://staging.pmmsherpa.com/api/mcp` and a staging account.
+
+## Next steps
+
+- [See worked examples](/docs/examples)
+- [Understand credits and billing](/docs/purchase-credits)
+
+[Back to top](#connect-chatgpt)

@@ -1,0 +1,37 @@
+---
+title: Connect Claude.ai
+description: Add PMM Sherpa as a custom connector in Claude.ai.
+order: 1
+---
+
+# Connect Claude.ai
+
+Works on Claude.ai Pro, Max, Team, and Enterprise. Free plan cannot add custom connectors.
+
+## Steps
+
+1. Open [claude.ai → Settings → Connectors](https://claude.ai/settings/connectors).
+2. Scroll to the bottom and click **Add custom connector**.
+3. Enter:
+   - **Name**: `PMM Sherpa`
+   - **URL**: `https://pmmsherpa.com/api/mcp`
+4. Click **Add**. Claude opens an OAuth window. Sign in with the same Google or email account you use at pmmsherpa.com and approve.
+5. In any chat, click the tools icon and toggle **PMM Sherpa** on for that conversation. The four tools appear in the tool picker.
+
+## Auth
+
+Browser OAuth, fully handled by Claude. Nothing to paste. Tokens refresh automatically.
+
+## Troubleshooting
+
+- **OAuth window blocked**: allow pop-ups for `pmmsherpa.com` and `claude.ai`, then re-trigger any tool call.
+- **Tools missing in chat**: each conversation has its own toggle. Open the tools menu inside the chat and switch PMM Sherpa on.
+- **401 / token expired**: remove the connector under Settings, then re-add it.
+- **Need staging**: swap the URL to `https://staging.pmmsherpa.com/api/mcp`. Staging requires a separate login.
+
+## Next steps
+
+- [See worked examples](/docs/examples)
+- [Understand credits and billing](/docs/purchase-credits)
+
+[Back to top](#connect-claudeai)

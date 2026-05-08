@@ -1,0 +1,60 @@
+---
+title: Connect Claude Code
+description: Add PMM Sherpa to Claude Code via CLI or config file.
+order: 2
+---
+
+# Connect Claude Code
+
+Claude Code is a first-class MCP client. Both the CLI and the IDE extensions share the same config.
+
+## One-line install
+
+```bash
+claude mcp add --transport http pmm-sherpa https://pmmsherpa.com/api/mcp
+```
+
+That writes the entry into `~/.claude.json` for you.
+
+## Manual config
+
+If you prefer to edit the file by hand, open `~/.claude.json` (user-global) or `.mcp.json` (project-local) and add:
+
+```json
+{
+  "mcpServers": {
+    "pmm-sherpa": {
+      "type": "http",
+      "url": "https://pmmsherpa.com/api/mcp"
+    }
+  }
+}
+```
+
+## Verify
+
+Inside Claude Code, run:
+
+```
+/mcp
+```
+
+You should see `pmm-sherpa` listed. The first tool call triggers a browser OAuth flow. Subsequent sessions reuse the cached token.
+
+## Auth
+
+Browser OAuth, handled automatically on first use. No tokens to paste.
+
+## Troubleshooting
+
+- **`pmm-sherpa` not in `/mcp`**: confirm the JSON above is valid (commas, braces). Restart Claude Code after editing.
+- **OAuth window does not open**: make sure pop-ups are allowed for `pmmsherpa.com` and re-run any tool call.
+- **401 / token expired**: run `claude mcp remove pmm-sherpa` then re-add. Tokens refresh automatically thereafter.
+- **Want staging**: replace the URL with `https://staging.pmmsherpa.com/api/mcp`. Staging requires a separate login.
+
+## Next steps
+
+- [See worked examples](/docs/examples)
+- [Understand credits and billing](/docs/purchase-credits)
+
+[Back to top](#connect-claude-code)

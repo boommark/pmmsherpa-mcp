@@ -1,0 +1,86 @@
+---
+title: Examples
+description: Worked end-to-end use cases for PMM Sherpa.
+order: 8
+---
+
+# Examples
+
+Four worked examples. Each one shows which tool to call, what to pass, and what good output looks like.
+
+## 1. Audit a competitor's landing page
+
+**Use case**: a competitor just shipped a new homepage. You want a structured critique against positioning, messaging clarity, and conversion heuristics.
+
+**Tool**: `get_feedback`
+
+**Prompt**:
+
+> Use `get_feedback` on this URL: `https://competitor.com/`. Score it on positioning clarity, ICP fit, primary message, proof, and CTA. Flag the three weakest moments.
+
+**What you get back**: a structured critique with paragraph-level call-outs, the top three weak spots ranked, and a one-paragraph "what would I steal" summary. The advisor pulls from the same heuristics April Dunford, Andy Raskin, and the PMA blog corpus use.
+
+**Tip**: paste your own URL alongside and ask Sherpa to compare. The contrast is sharper than scoring in isolation.
+
+---
+
+## 2. Draft a positioning statement
+
+**Use case**: you are at the "messy doc with bullets" stage and you need a clean positioning statement to test internally.
+
+**Tool**: `draft_artifact` with `artifact_type: positioning_statement`
+
+**Prompt**:
+
+> Use `draft_artifact` with `artifact_type: positioning_statement`. Inputs:
+> - Product: [paste the one-liner]
+> - ICP: [paste]
+> - Top alternatives: [paste 2 or 3]
+> - Unique attributes: [paste 3]
+> - Value (job done): [paste]
+> - Market category: [paste or "TBD"]
+
+**What you get back**: an April Dunford-style positioning statement with the six components filled in, plus a short "where this is weakest" callout pointing at the input that needs more evidence.
+
+**Tip**: if you do not yet know one of the inputs, write "TBD" for that field and let Sherpa flag it. Do not invent inputs to fill the form.
+
+---
+
+## 3. Plan a launch in Claude Deep Research
+
+**Use case**: you are about to kick off a Deep Research run in Claude.ai for a launch plan. You want the planner to stay grounded in PMM frameworks, not improvise.
+
+**Tools**: `scope_pmm_research` (planner), `ask_sherpa` (per subagent), `get_feedback` (synthesis)
+
+**Flow**:
+
+1. **At planning time**: the planner subagent calls `scope_pmm_research` with the launch brief. Sherpa returns the right framework lenses to use (positioning, narrative, segment prioritization, pricing, sales enablement, post-launch metrics) plus the corpus slices the planner should ask about.
+2. **Per subagent**: each Deep Research subagent calls `ask_sherpa` against its specific question. Subagents stay narrow. Sherpa keeps each call grounded in 5 to 8 retrieved chunks.
+3. **At synthesis**: the lead agent (or you) calls `get_feedback` on the draft launch plan. Sherpa critiques the plan against the same launch playbooks the corpus contains, flags missed segments, weak proof, and risky messaging.
+
+**Tip**: this flow only works in Claude.ai (not ChatGPT Deep Research, which only accepts `search` / `fetch`-shape tools). See [Connect ChatGPT](/docs/connect-chatgpt) for the workaround.
+
+---
+
+## 4. Pressure-test a messaging framework
+
+**Use case**: you have a messaging house with three pillars and supporting proof. You want a senior PMM to poke holes before the cross-functional review.
+
+**Tool**: `get_feedback`
+
+**Prompt**:
+
+> Use `get_feedback` on this messaging framework. Tell me where the pillars overlap, where the proof is weakest, and which pillar would not survive a buyer asking "so what?". Here is the framework: [paste it]
+
+**What you get back**: pillar-by-pillar critique, a "so what?" stress test for each line, a flag on overlapping pillars (a common smell), and a short recommendation on which pillar to lead with.
+
+**Tip**: include the audience and the buying stage at the top of your paste. The critique gets noticeably sharper when Sherpa knows whether you are talking to a champion in evaluation or a CFO in procurement.
+
+---
+
+## Next steps
+
+- [Connect a client](/docs)
+- [Understand credits and billing](/docs/purchase-credits)
+
+[Back to top](#examples)
