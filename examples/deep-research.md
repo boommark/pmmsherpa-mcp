@@ -41,7 +41,7 @@ Before decomposing the question into sub-questions, the lead agent calls **`scop
   "sources_to_weight": [
     "Pricing-strategy practitioner essays from operators with B2B
      SaaS experience",
-    "Sharebird AMAs from PMMs who've launched against freemium",
+    "Practitioner AMAs from PMMs who've launched against freemium",
     "Books on value-based pricing and opinionated software"
   ],
   "anti_patterns": [

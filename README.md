@@ -309,16 +309,13 @@ Four sample workflows, end-to-end:
 
 ## 📚 The corpus
 
-38,000+ chunks across 9 knowledge layers:
+38,000+ chunks, hand-curated across the highest-signal PMM material in the field:
 
-- 34 PMM books
-- 583 podcast episodes (PMM Alliance, Sharebird, etc.)
-- 532 Sharebird AMAs with senior practitioners
-- 827 PMA practitioner blog posts
-- 23 substacks from PMM thought leaders
-- 790 thought-leader essays from named operators
+- **34 authoritative books** on positioning, messaging, pricing, GTM, and launch
+- **1,100+ practitioner conversations**: podcast episodes and senior-PMM AMAs
+- **1,600+ practitioner essays**: long-form blog posts and operator write-ups
 
-The corpus is curated, not crawled. Every source is hand-picked for substance density. Want a source added? [Open a corpus request](https://github.com/boommark/pmmsherpa-mcp/issues/new?template=corpus_request.yml).
+The corpus is curated, not crawled. Every source is hand-picked for substance density. Want something added? [Open a corpus request](https://github.com/boommark/pmmsherpa-mcp/issues/new?template=corpus_request.yml).
 
 ---
 
