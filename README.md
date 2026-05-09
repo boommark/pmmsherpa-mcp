@@ -48,21 +48,62 @@ All four are grounded in the same corpus and speak the same voice. You orchestra
 
 ---
 
-## 🚀 Quick Start (60 seconds, Claude.ai)
+## Quick Start
 
-The fastest path. If you have Claude.ai Pro/Max/Team/Enterprise:
+Pick your client. Each setup takes a minute.
 
-1. Open Claude.ai → **Settings → Connectors → Add custom connector**
-2. Name: `PMM Sherpa` &nbsp;·&nbsp; URL: `https://pmmsherpa.com/api/mcp` &nbsp;·&nbsp; Auth: OAuth
+### <img src="assets/clients/claude.svg" alt="" width="20" height="20" align="absmiddle" /> &nbsp;Claude.ai &nbsp;·&nbsp; *Pro / Max / Team / Enterprise*
+
+1. Claude.ai → **Settings → Connectors → Add custom connector**
+2. **Name**: `PMM Sherpa` &nbsp;·&nbsp; **URL**: `https://pmmsherpa.com/api/mcp` &nbsp;·&nbsp; **Auth**: OAuth
 3. Sign in with the same Google account you use on [pmmsherpa.com](https://pmmsherpa.com)
-4. (Recommended) Upload the [Claude.ai skill](skills/claude-ai/) so Sherpa auto-triggers on PMM keywords with the right voice
+4. (Recommended) Upload the **[Claude.ai skill](skills/claude-ai/pmm-sherpa-skill.zip)** so Sherpa auto-triggers on PMM keywords with the right voice
 5. Ask: *"Help me sharpen positioning for [your product]."*
-
-That's it. The connector is up. See it in action below.
 
 <p align="center">
   <img src="assets/sherpa-claude-ai.png" alt="PMM Sherpa running in Claude.ai" width="780" />
 </p>
+
+### <img src="assets/clients/claude-code.png" alt="" width="20" height="20" align="absmiddle" /> &nbsp;Claude Code &nbsp;·&nbsp; *CLI + IDE extensions*
+
+```bash
+claude mcp add pmm-sherpa --transport http https://pmmsherpa.com/api/mcp
+```
+
+OAuth opens in your browser on first call. Then install the skill so Sherpa auto-fires on PMM keywords:
+
+```bash
+git clone https://github.com/boommark/pmmsherpa-mcp.git ~/.pmm-sherpa
+mkdir -p ~/.claude/skills
+ln -s ~/.pmm-sherpa/skills/claude-code ~/.claude/skills/pmm-sherpa
+```
+
+In your next Claude Code session, prompt:
+
+```
+> See pmmsherpa.com. Help me create a battlecard against its top competitor.
+```
+
+<p align="center">
+  <img src="assets/sherpa-claude-code.png" alt="PMM Sherpa skill auto-triggering in Claude Code" width="780" />
+</p>
+
+### <img src="assets/clients/chatgpt.png" alt="" width="20" height="20" align="absmiddle" /> &nbsp;ChatGPT &nbsp;·&nbsp; *Plus / Pro / Team / Business — Developer Mode*
+
+1. ChatGPT → **Settings → Connectors → Advanced** → toggle **Developer Mode** ON
+2. Settings → Connectors → **Create**:
+   - **Name**: `PMM Sherpa`
+   - **MCP Server URL**: `https://pmmsherpa.com/api/mcp`
+   - **Authentication**: OAuth, "I trust this application"
+3. Sign in with the same Google account as [pmmsherpa.com](https://pmmsherpa.com)
+4. Settings → **Personalization → Custom Instructions** → paste **[`skills/chatgpt/custom-instructions.md`](skills/chatgpt/custom-instructions.md)** (~1,200 chars). This is the skill-equivalent for ChatGPT, since it does not yet support skills natively.
+5. In a new chat, toggle **PMM Sherpa** ON in the Tools panel. Ask: *"Help me sharpen the positioning for [your product] against [competitor]."*
+
+<p align="center">
+  <img src="assets/sherpa-chatgpt.png" alt="PMM Sherpa connector in ChatGPT" width="780" />
+</p>
+
+> Codex CLI, Gemini CLI, and Antigravity also work. See [Multi-client install](#-multi-client-install) below.
 
 ---
 
