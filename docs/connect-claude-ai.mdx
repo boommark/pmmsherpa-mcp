@@ -18,6 +18,30 @@ Works on Claude.ai Pro, Max, Team, and Enterprise. Free plan cannot add custom c
 4. Click **Add**. Claude opens an OAuth window. Sign in with the same Google or email account you use at pmmsherpa.com and approve.
 5. In any chat, click the tools icon and toggle **PMM Sherpa** on for that conversation. The four tools appear in the tool picker.
 
+## Install the skill (recommended)
+
+The connector exposes the tools. The skill is what makes Claude.ai pick the right tool, in the right voice, automatically.
+
+Without the skill, you have to remember to toggle the connector on and prompt for the right tool every time. With the skill, Sherpa fires on PMM keywords (positioning, messaging, GTM, launch, ICP, persona, battlecard, pricing, narrative, win/loss, analyst), routes to the right tool, and enforces Layer 4 voice across the conversation.
+
+### Steps
+
+1. Download [`pmm-sherpa-skill.zip`](https://github.com/boommark/pmmsherpa-mcp/raw/main/skills/claude-ai/pmm-sherpa-skill.zip) from the public repo.
+2. Claude.ai → **Settings → Capabilities → Skills → Upload skill**.
+3. Upload the zip. Toggle the **PMM Sherpa** skill ON.
+
+### Verify
+
+Open a new conversation. Send:
+
+```
+Help me sharpen positioning for [your product] against [competitor].
+```
+
+You should see the skill name `pmm-sherpa` appear at the top of the response, followed by a `mcp__pmm-sherpa__ask_sherpa` (or `draft_artifact`) tool call. Response stays in Layer 4 voice: situation-first opener, no "Great question", no em-dashes, ends with one takeaway question.
+
+<img src="/pmmsherpamcp_claude_ai.png" alt="PMM Sherpa running in Claude.ai" />
+
 ## Auth
 
 Browser OAuth, fully handled by Claude. Nothing to paste. Tokens refresh automatically.

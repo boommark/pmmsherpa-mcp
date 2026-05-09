@@ -6,9 +6,33 @@ order: 8
 
 # Examples
 
-Four worked examples. Each one shows which tool to call, what to pass, and what good output looks like.
+Five worked examples. Each one shows which tool to call, what to pass, and what good output looks like.
 
-## 1. Audit a competitor's landing page
+## 1. Prep for a PMM interview at a target company
+
+**Use case**: you have a final-round PMM interview at a specific company in a few days. You want to show up with a sharp read on their positioning, likely GTM weak spots, and crisp answers to the case-style questions hiring managers ask.
+
+**Tools**: `ask_sherpa` (research the role and the company's positioning), `draft_artifact` with `artifact_type: company_teardown` (a structured teardown of their current GTM), `get_feedback` (pressure-test your answers).
+
+**Step 1 · Scope the company**
+
+> Use `ask_sherpa`. I have a Senior PMM interview at [Company]. They sell [product] to [audience]. Read their site, then give me: the positioning statement they imply (not what they say), the three GTM moves a senior PMM would make in their first 90 days, and the two questions a hiring manager is likely to ask in a case round.
+
+**Step 2 · Build a teardown you can walk in with**
+
+> Use `draft_artifact` with `artifact_type: company_teardown`. Inputs: company URL, product category, ICP I think they're chasing, two competitors I noticed. Output the teardown the way I'd present it on a whiteboard: positioning, ICP fit, messaging gaps, one launch they should run, one they should kill.
+
+**Step 3 · Pressure-test your answers**
+
+> Use `get_feedback` on this answer to "What's the first 30/60/90 you'd run if we hired you?" Score it on specificity to our business, evidence behind each move, and whether it sounds like a senior PMM or a generalist. Here is the draft: [paste]
+
+**What you get back**: a working teardown you can walk in with, candidate answers calibrated to senior-PMM expectations, and a list of risks to address before the conversation. Most candidates show up with frameworks. You show up with a teardown.
+
+**Tip**: do not paste your full resume. Sherpa is calibrated for PMM judgment, not career coaching. Use it for the company read, the case answers, and the post-interview thank-you note framing. Use a career coach for the resume itself.
+
+---
+
+## 2. Audit a competitor's landing page
 
 **Use case**: a competitor just shipped a new homepage. You want a structured critique against positioning, messaging clarity, and conversion heuristics.
 
@@ -18,13 +42,13 @@ Four worked examples. Each one shows which tool to call, what to pass, and what 
 
 > Use `get_feedback` on this URL: `https://competitor.com/`. Score it on positioning clarity, ICP fit, primary message, proof, and CTA. Flag the three weakest moments.
 
-**What you get back**: a structured critique with paragraph-level call-outs, the top three weak spots ranked, and a one-paragraph "what would I steal" summary. The advisor pulls from the same heuristics April Dunford, Andy Raskin, and the PMA blog corpus use.
+**What you get back**: a structured critique with paragraph-level call-outs, the top three weak spots ranked, and a one-paragraph "what would I steal" summary. The advisor pulls from the same positioning, narrative, and conversion heuristics senior B2B PMMs use in real teardowns.
 
 **Tip**: paste your own URL alongside and ask Sherpa to compare. The contrast is sharper than scoring in isolation.
 
 ---
 
-## 2. Draft a positioning statement
+## 3. Draft a positioning statement
 
 **Use case**: you are at the "messy doc with bullets" stage and you need a clean positioning statement to test internally.
 
@@ -40,13 +64,13 @@ Four worked examples. Each one shows which tool to call, what to pass, and what 
 > - Value (job done): [paste]
 > - Market category: [paste or "TBD"]
 
-**What you get back**: an April Dunford-style positioning statement with the six components filled in, plus a short "where this is weakest" callout pointing at the input that needs more evidence.
+**What you get back**: a six-part positioning statement (alternatives, attributes, value, target market, market category, who it's for) with each component filled in, plus a short "where this is weakest" callout pointing at the input that needs more evidence.
 
 **Tip**: if you do not yet know one of the inputs, write "TBD" for that field and let Sherpa flag it. Do not invent inputs to fill the form.
 
 ---
 
-## 3. Plan a launch in Claude Deep Research
+## 4. Plan a launch in Claude Deep Research
 
 **Use case**: you are about to kick off a Deep Research run in Claude.ai for a launch plan. You want the planner to stay grounded in PMM frameworks, not improvise.
 
@@ -62,7 +86,7 @@ Four worked examples. Each one shows which tool to call, what to pass, and what 
 
 ---
 
-## 4. Pressure-test a messaging framework
+## 5. Pressure-test a messaging framework
 
 **Use case**: you have a messaging house with three pillars and supporting proof. You want a senior PMM to poke holes before the cross-functional review.
 

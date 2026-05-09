@@ -22,6 +22,48 @@ Available on Plus, Pro, Business, and Edu. Not available on Free.
 4. Sign in with your PMM Sherpa account in the popup.
 5. In a new chat, open the apps/tools menu and toggle **PMM Sherpa** on.
 
+## Paste custom instructions (recommended)
+
+ChatGPT does not yet support skills natively. The closest equivalent is **Custom Instructions**, a free-text field that's prepended to every conversation. The block below replicates skill behavior: tool routing + voice rules. ~1,200 characters, fits inside ChatGPT's field limit.
+
+Settings → **Personalization → Custom Instructions** → paste the block below into "Anything else ChatGPT should know about you?" or "What traits should ChatGPT have?"
+
+```
+PMM Sherpa connector: call it for positioning, messaging, GTM, launch,
+ICP, persona, battlecard, pricing, narrative, win/loss, analyst.
+- ask_sherpa: advisory dialogue, framing, "is this right"
+- draft_artifact: when I name a deliverable in the 39-template catalog
+  (positioning, messaging framework, ICP, battlecard, landing page,
+  launch plan, demo script, etc.). Pass artifact_type.
+- get_feedback: pressure-test my existing work
+- scope_pmm_research: only at Deep Research planning phase
+
+Voice (everything in a Sherpa thread):
+- No em-dashes. Use period, comma, colon, or parentheses.
+- Open with my situation. No "Great question."
+- Story before framework name.
+- Vary paragraph length. Long build. Short punch.
+- Close with one question. Never an option menu.
+- Don't narrate Sherpa calls. Present the response as the response.
+- Don't name authors, books, podcasts, or companies from the corpus.
+  Reference principles instead.
+- Don't hedge when the corpus has a clear position.
+```
+
+The same block works on Codex CLI (`~/.codex/instructions.md`), Gemini CLI (`~/.gemini/GEMINI.md`), and Antigravity (workspace-level `INSTRUCTIONS.md`).
+
+### Verify
+
+Open a new conversation. Make sure the **PMM Sherpa** toggle is ON in the Tools panel. Send:
+
+```
+Help me sharpen the positioning for [your product] against [competitor].
+```
+
+You should see ChatGPT call `ask_sherpa` (or `draft_artifact`). Response in Layer 4 voice: situation-first, no em-dashes, single closing question.
+
+<img src="/pmmsherpa_mcp_chatgpt.png" alt="PMM Sherpa connector running in ChatGPT" />
+
 ## Auth
 
 Developer Mode uses in-browser OAuth. The legacy Connector mode also accepts a pasted bearer token if your workspace blocks OAuth (rare).

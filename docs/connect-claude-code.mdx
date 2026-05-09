@@ -41,6 +41,41 @@ Inside Claude Code, run:
 
 You should see `pmm-sherpa` listed. The first tool call triggers a browser OAuth flow. Subsequent sessions reuse the cached token.
 
+## Install the skill (recommended)
+
+The MCP connector exposes the four tools. The skill is what makes Claude Code auto-fire Sherpa on PMM keywords, route to the correct tool, and enforce Layer 4 voice in every response.
+
+### Global install (recommended)
+
+```bash
+git clone https://github.com/boommark/pmmsherpa-mcp.git ~/.pmm-sherpa
+mkdir -p ~/.claude/skills
+ln -s ~/.pmm-sherpa/skills/claude-code ~/.claude/skills/pmm-sherpa
+```
+
+The skill is now available across every project. Updates land instantly when you `git pull` in `~/.pmm-sherpa`.
+
+### Per-project install
+
+```bash
+mkdir -p .claude/skills
+git clone https://github.com/boommark/pmmsherpa-mcp.git /tmp/pmm-sherpa-repo
+cp -r /tmp/pmm-sherpa-repo/skills/claude-code .claude/skills/pmm-sherpa
+rm -rf /tmp/pmm-sherpa-repo
+```
+
+### Verify
+
+In a new Claude Code session, prompt:
+
+```
+> See pmmsherpa.com. Help me create a battlecard against its top competitor.
+```
+
+You should see `Skill(pmm-sherpa)` load, followed by a `Calling PMM Sherpa…` tool call (`mcp__pmm-sherpa__ask_sherpa` or `draft_artifact`). Response in Layer 4 voice.
+
+<img src="/pmmsherpa_mcp_claudecode.png" alt="PMM Sherpa skill auto-triggering in Claude Code" />
+
 ## Auth
 
 Browser OAuth, handled automatically on first use. No tokens to paste.
