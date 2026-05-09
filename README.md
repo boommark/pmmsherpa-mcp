@@ -279,8 +279,9 @@ Without the skill, Sherpa still works. You just have to remember to toggle the c
 
 ## 💡 Examples
 
-Four sample workflows, end-to-end:
+Five sample workflows, end-to-end:
 
+- [**Prep for a PMM interview at a target company**](examples/pmm-interview-prep.md). `ask_sherpa` scopes the company, `draft_artifact` builds a teardown, `get_feedback` pressure-tests your case answers.
 - [**Positioning sharpening in Claude.ai**](examples/positioning-claude-ai.md). From rough draft to crisp positioning statement, with one Sherpa call.
 - [**Launch deck via skill in Claude Code**](examples/launch-deck-claude-code.md). Skill auto-fires, `draft_artifact` produces the deck outline.
 - [**Battlecard in ChatGPT**](examples/battlecard-chatgpt.md). Custom instructions route to `draft_artifact`, response stays in voice.
