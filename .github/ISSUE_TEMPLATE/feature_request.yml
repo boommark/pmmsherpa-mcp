@@ -1,0 +1,57 @@
+name: 💡 Feature request
+description: Suggest a new tool, artifact, client connector, or capability.
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for thinking about how to make Sherpa better. Sharper requests get implemented faster.
+  - type: dropdown
+    id: area
+    attributes:
+      label: What part of Sherpa?
+      options:
+        - New MCP tool
+        - New artifact in the 39-template catalog
+        - New client connector or surface
+        - Credit system / pricing
+        - Skill file or custom instructions
+        - Docs / examples
+        - Observability / tracing
+        - Voice / cadence
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem you're hitting
+      description: Describe the workflow or moment where Sherpa falls short today.
+      placeholder: When I'm building a competitive matrix, I have to manually paste competitor URLs one by one. Sherpa never automates the comparison.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What would make this better? Be specific. Sketch the API or the workflow if you can.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Other approaches you've thought about, including why they don't work as well.
+  - type: textarea
+    id: context
+    attributes:
+      label: Use case / context
+      description: Who would benefit? What's the situation? Real examples help.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I searched existing issues and Discussions for similar requests
+          required: true

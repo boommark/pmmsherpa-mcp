@@ -1,0 +1,83 @@
+name: 📚 Corpus request
+description: Suggest a book, podcast, AMA, or essay to add to Sherpa's corpus.
+title: "[Corpus]: "
+labels: ["corpus", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Sherpa's corpus is curated, not crawled. We add sources based on substance density, not popularity. The sharper your case, the better the chance.
+  - type: dropdown
+    id: source_type
+    attributes:
+      label: What kind of source?
+      options:
+        - Book
+        - Podcast (whole show or specific episode)
+        - AMA / interview
+        - Substack / blog
+        - Long-form essay
+        - Book chapter or talk transcript
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title or name
+      description: The book title, podcast name, essay title, etc.
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author / host
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL or source link
+      description: Where can we find it? (Amazon page, podcast feed, blog post, etc.)
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Where does it fit?
+      multiple: true
+      options:
+        - Positioning
+        - Messaging
+        - GTM / launch
+        - Pricing
+        - Narrative
+        - Competitive
+        - Category design
+        - Buyer psychology / persona
+        - Sales enablement
+        - Analyst relations
+        - Career / leadership
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it belong?
+      description: One sharp paragraph. What's the substance density? What does it teach that nothing else in the corpus does?
+      placeholder: This essay is the only place I've seen anyone unpack the "anti-positioning" tactic competitors use to box you in. Sherpa would catch this in battlecard work and doesn't today.
+    validations:
+      required: true
+  - type: textarea
+    id: caveats
+    attributes:
+      label: Anything we should know?
+      description: Paywalls, copyright concerns, podcast transcript availability, etc.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I checked the existing corpus inventory at https://pmmsherpa.com/docs and this isn't already there
+          required: true
+        - label: This source is from a credible practitioner, not a generic content marketer
+          required: true

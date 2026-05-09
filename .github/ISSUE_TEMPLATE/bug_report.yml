@@ -1,0 +1,86 @@
+name: 🐛 Bug report
+description: Something is broken in the MCP server, the docs, a skill file, or an example.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. The more specific you are, the faster we can fix it.
+  - type: dropdown
+    id: client
+    attributes:
+      label: Which client were you using?
+      options:
+        - Claude.ai
+        - Claude Code
+        - ChatGPT
+        - Codex
+        - Gemini CLI
+        - Antigravity
+        - Other (mention in description)
+    validations:
+      required: true
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Which tool misbehaved?
+      options:
+        - ask_sherpa
+        - draft_artifact
+        - get_feedback
+        - scope_pmm_research
+        - OAuth / authentication
+        - Credit deduction
+        - Skill file or custom instructions
+        - Docs site
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug. What did you expect? What did you get instead?
+      placeholder: I asked for a positioning statement and got back generic AI prose with em-dashes everywhere.
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Your prompt
+      description: Paste the exact prompt or message you sent.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: response
+    attributes:
+      label: The response (or error)
+      description: Paste what Sherpa returned. Redact anything sensitive.
+      render: text
+  - type: input
+    id: trace_id
+    attributes:
+      label: Trace ID (if available)
+      description: Sherpa errors usually include a trace ID. Paste it here for fast diagnosis.
+      placeholder: e.g. 000000000000000080c730265da04009
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps so we can replicate.
+      placeholder: |
+        1. Open Claude.ai
+        2. Toggle PMM Sherpa connector ON
+        3. Send the prompt above
+        4. Observe response
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I searched existing issues for duplicates
+          required: true
+        - label: I redacted any credentials, tokens, or sensitive info from this report
+          required: true

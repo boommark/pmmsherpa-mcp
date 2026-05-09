@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussions
+    url: https://github.com/boommark/pmmsherpa-mcp/discussions
+    about: Ask a how-to question, share a workflow, or get help from the community.
+  - name: Sign up at pmmsherpa.com
+    url: https://pmmsherpa.com
+    about: Try Sherpa on the web before connecting via MCP.
+  - name: Read the docs
+    url: https://pmmsherpa.com/docs
+    about: Setup guides for Claude.ai, Claude Code, ChatGPT, Codex, Gemini CLI, and Antigravity.
