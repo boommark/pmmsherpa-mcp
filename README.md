@@ -296,7 +296,7 @@ Five sample workflows, end-to-end:
 | **Free** | $0 | 10 MCP credits / month. 2 credits per query. Try every tool. |
 | **Starter** | $9.99 | 200 MCP credits / month. Unlimited use of [pmmsherpa.com](https://pmmsherpa.com) chat. Topup packs unlocked. |
 
-**Topup packs** (one-time, never expire, Starter only):
+**Topup packs** (one-time, never expire):
 
 | Pack | Credits | $/credit |
 |---|---|---|
